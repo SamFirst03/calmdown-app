@@ -1,26 +1,30 @@
-Guide utilisateur — CalmDown
+Guide utilisateur de CalmDown
 
-1. Présentation
+Présentation
 
-CalmDown est une application web destinée à accompagner les utilisateurs dans leur démarche de détente et de gestion du stress.
+CalmDown est une application web qui aide à organiser les tâches, planifier les activités et améliorer la concentration.
 
-2. Accéder à l’application
+Utilisation des outils
 
-Ouvrir l’adresse publique de l’application dans un navigateur web.
+Timer Pomodoro
 
-3. Utiliser l’application
+Choisir une durée de travail et une durée de pause, puis lancer le minuteur si ces options sont disponibles dans l’application.
 
-1. Accéder à la page d’accueil.
-2. Découvrir les fonctionnalités disponibles.
-3. Suivre les instructions affichées à l’écran.
-4. Utiliser les fonctionnalités proposées par l’application.
+To-Do List
 
-4. Compatibilité
+Ajouter les tâches à effectuer, puis les marquer comme terminées lorsque le travail est réalisé.
 
-L’application est accessible depuis un navigateur web moderne.
+Planificateur
 
-5. Améliorations futures
+Organiser les activités en fonction de ses priorités et de son emploi du temps.
 
-* Améliorer l’accessibilité de l’interface.
-* Optimiser l’affichage sur téléphone.
-* Enrichir les fonctionnalités selon les besoins des utilisateurs.
+Notes
+
+Enregistrer les idées et informations importantes.
+
+Conseils d’utilisation
+
+* Définir ses priorités au début de la journée.
+* Découper les tâches importantes en étapes plus petites.
+* Prévoir des pauses régulières.
+* Faire le bilan des tâches accomplies en fin de journée.
