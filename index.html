@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html class="h-full" lang="fr" style="">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>CalmDown // Studio Focus &amp; Productivité</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#fff8f4","on-background": "#1d1b19","on-surface": "#1d1b19","surface-container-lowest": "#ffffff","tertiary": "#5e5c54","surface-dim": "#dfd9d5","on-tertiary-container": "#fffbff","surface-variant": "#e7e1de","on-secondary": "#ffffff","secondary-fixed-dim": "#bacbb5","inverse-primary": "#ffb59c","outline": "#8a726a","inverse-on-surface": "#f6f0ec","on-surface-variant": "#56423c","error-container": "#ffdad6","primary-fixed-dim": "#ffb59c","tertiary-container": "#77746c","on-secondary-fixed-variant": "#3b4b3a","on-error-container": "#93000a","on-secondary-fixed": "#111f11","on-tertiary-fixed-variant": "#49473f","primary-fixed": "#ffdbcf","secondary": "#526350","on-primary-fixed": "#390c00","background": "#fff8f4","secondary-fixed": "#d5e8d0","surface-container-low": "#f9f2ef","on-primary-container": "#fffbff","tertiary-fixed-dim": "#cac6bc","tertiary-fixed": "#e3e2d8","outline-variant": "#ddc0b7","surface-container": "#f3ede9","on-primary-fixed-variant": "#802a05","on-tertiary-fixed": "#1d1c16","secondary-container": "#d5e8d0","surface-tint": "#a0401c","on-secondary-container": "#586956","primary": "#9d3e1a","on-tertiary": "#ffffff","error": "#ba1a1a","surface-container-highest": "#e7e1de","on-error": "#ffffff","surface-bright": "#fff8f4","primary-container": "#bd5630","on-primary": "#ffffff","surface-container-high": "#ede7e3","inverse-surface": "#32302e"
+          },
+          "borderRadius": { "DEFAULT": "1rem","lg": "2rem","xl": "3rem","full": "9999px" },
+          "fontFamily": {
+            "headline-sm": ["Space Grotesk"],"headline-md": ["Space Grotesk"],"body-lg": ["Plus Jakarta Sans"],"display-timer": ["Space Grotesk"],"display-timer-mobile": ["Space Grotesk"],"body-sm": ["Plus Jakarta Sans"],"headline-lg-mobile": ["Space Grotesk"],"label-pill": ["Space Grotesk"],"body-md": ["Plus Jakarta Sans"],"headline-lg": ["Space Grotesk"],"label-caps": ["Space Grotesk"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; line-height: 1; }
+    .shadow-mineral-soft { box-shadow: 0 4px 20px -2px rgba(30, 28, 26, 0.04), 0 1px 3px 0 rgba(30, 28, 26, 0.02); }
+    .shadow-mineral { box-shadow: 0 12px 32px -8px rgba(30, 28, 26, 0.05), 0 2px 6px -1px rgba(30, 28, 26, 0.02); }
+    .shadow-mineral-lg { box-shadow: 0 20px 40px -10px rgba(30, 28, 26, 0.08), 0 4px 12px -2px rgba(30, 28, 26, 0.03); }
+    textarea::-webkit-scrollbar { width: 8px; }
+    textarea::-webkit-scrollbar-track { background: transparent; }
+    textarea::-webkit-scrollbar-thumb { background: #dfd9d5; border-radius: 10px; }
+    html.dark textarea::-webkit-scrollbar-thumb { background: #3e3732; }
+
+    /* CORRECTION ICI : Enlève le contour blanc (outline) au clic sur les boutons */
+    .mode-btn:focus, .mode-btn:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    html.dark { color-scheme: dark; }
+    html.dark body { background-color: #151312; color: #f4ede8; }
+    html.dark header { background-color: rgba(24, 22, 21, 0.88) !important; border-color: #2e2926 !important; }
+    html.dark .bg-surface { background-color: #1e1b19 !important; border-color: #2e2926 !important; }
+    html.dark .bg-surface-container { background-color: #282422 !important; border-color: #38322e !important; }
+    html.dark .bg-surface-container-low { background-color: #23201e !important; border-color: #322d29 !important; }
+    html.dark .text-on-surface { color: #f4ede8 !important; }
+    html.dark .text-on-surface-variant { color: #b0a49c !important; }
+    html.dark .border-\[\#e8e2dc\] { border-color: #2e2926 !important; }
+    html.dark .border-\[\#e8e2dc\]\/80 { border-color: rgba(46, 41, 38, 0.8) !important; }
+    html.dark .border-\[\#e8e2dc\]\/40 { border-color: rgba(46, 41, 38, 0.4) !important; }
+    html.dark .divide-\[\#e8e2dc\]\/60 > :not([hidden]) ~ :not([hidden]) { border-color: rgba(46, 41, 38, 0.6) !important; }
+    html.dark #main-play-btn { background-color: #ede4de !important; color: #181615 !important; }
+    html.dark #main-play-btn #play-btn-icon, html.dark #main-play-btn #play-btn-text { color: #181615 !important; }
+    html.dark #mode-pills-nav { background-color: #23201e !important; border-color: #332d29 !important; }
+    html.dark #mode-pills-nav .active-mode-pill { background-color: #1e1b19 !important; color: #f4ede8 !important; border-color: #3e3732 !important; }
+    html.dark footer { background-color: rgba(24, 22, 21, 0.9) !important; border-color: #2e2926 !important; }
+    html.dark input[type="text"], html.dark textarea { color: #f4ede8 !important; }
+    html.dark #sidebar { background-color: #1a1816 !important; border-color: #2e2926 !important; }
+
+    .focus-display {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px; font-weight: 600; letter-spacing: -0.02em;
+      line-height: 1.3; color: #1d1b19; cursor: text;
+      padding: 12px 0; border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease; min-height: 48px;
+    }
+    .focus-display:hover { border-bottom-color: rgba(157, 62, 26, 0.25); }
+    .focus-display.is-empty { color: rgba(86, 66, 60, 0.4); font-weight: 500; }
+    html.dark .focus-display { color: #f4ede8; }
+    html.dark .focus-display.is-empty { color: rgba(176, 164, 156, 0.5); }
+
+    .focus-edit {
+      display: none; width: 100%;
+      background: transparent; border: 0;
+      border-bottom: 2px solid #9d3e1a;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px; font-weight: 600; letter-spacing: -0.02em;
+      line-height: 1.3; color: #1d1b19; padding: 12px 0;
+      outline: none; transition: border-color 0.2s ease;
+    }
+    .focus-edit:focus { border-bottom-color: #9d3e1a; }
+    html.dark .focus-edit { color: #f4ede8; }
+
+    .focus-wrap.editing .focus-display { display: none; }
+    .focus-wrap.editing .focus-edit { display: block; }
+
+    @media (max-width: 640px) {
+      .focus-display, .focus-edit { font-size: 16px; padding: 8px 0; min-height: auto; }
+    }
+
+    .timer-round-btn { width: 40px; height: 40px; flex-shrink: 0; }
+    .timer-play-btn { height: 44px; flex-shrink: 0; min-width: 140px; justify-content: center; }
+    .timer-add-btn { height: 34px; padding-left: 12px; padding-right: 12px; font-size: 12px; flex-shrink: 0; }
+    
+    @media (min-width: 640px) {
+      .timer-round-btn { width: 56px; height: 56px; }
+      .timer-play-btn { height: 64px; padding-left: 48px; padding-right: 48px; min-width: 0; justify-content: flex-start; }
+      .timer-add-btn { height: 56px; padding-left: 20px; padding-right: 20px; font-size: 13px; }
+    }
+
+    @media (max-width: 400px) {
+      .font-display-timer { font-size: 60px !important; }
+      #timer-hero { padding: 1.25rem 1rem !important; }
+      #timer-controls { flex-wrap: nowrap !important; gap: 0.375rem !important; }
+      .timer-round-btn { width: 34px !important; height: 34px !important; }
+      .timer-round-btn .material-symbols-outlined { font-size: 16px !important; }
+      .timer-play-btn { height: 38px !important; min-width: 110px !important; padding-left: 12px !important; padding-right: 12px !important; gap: 4px !important; }
+      .timer-play-btn .material-symbols-outlined { font-size: 18px !important; }
+      .timer-play-btn #play-btn-text { font-size: 11px !important; }
+      .timer-add-btn { height: 32px !important; padding-left: 8px !important; padding-right: 8px !important; font-size: 11px !important; }
+    }
+
+    #theme-toggle-btn { position: relative; overflow: hidden; }
+    #theme-toggle-icon {
+      transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease !important;
+      display: inline-block; will-change: transform, opacity;
+    }
+    #theme-toggle-btn.spinning #theme-toggle-icon { transform: rotate(360deg) scale(0.4); opacity: 0; }
+    #theme-toggle-btn::after {
+      content: ''; position: absolute; inset: 0; border-radius: 9999px;
+      background: radial-gradient(circle, rgba(157, 62, 26, 0.35) 0%, transparent 70%);
+      transform: scale(0); opacity: 0; pointer-events: none;
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    }
+    #theme-toggle-btn.rippling::after { transform: scale(2.5); opacity: 1; transition: transform 0.6s ease-out, opacity 0.6s ease-out; }
+    #theme-toggle-btn:active { transform: scale(0.92); }
+
+    @media (max-width: 1023px) {
+      body.mobile-view-active #timer-hero { display: none !important; }
+      body:not(.mobile-view-active) #views-container { display: none !important; }
+
+      body:not(.mobile-view-active) {
+        height: 100vh !important; height: 100dvh !important;
+        max-height: 100vh !important; max-height: 100dvh !important;
+        min-height: 100vh !important; min-height: 100dvh !important;
+        overflow: hidden !important;
+        position: fixed !important; top: 0; left: 0; right: 0;
+      }
+      body:not(.mobile-view-active) > div.flex-1 { min-height: 0 !important; overflow: hidden !important; }
+      body:not(.mobile-view-active) #main-canvas { height: 100%; justify-content: center; }
+      body:not(.mobile-view-active) #timer-hero { margin-top: auto; margin-bottom: auto; }
+      body:not(.mobile-view-active) footer { display: none !important; }
+      
+      body.mobile-view-active {
+        position: static !important; height: auto !important; max-height: none !important;
+        min-height: 100vh !important; min-height: 100dvh !important;
+        overflow-y: auto !important; overflow-x: hidden !important;
+      }
+
+      #planner-header-row { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
+      #planner-header-row > div:first-child { width: 100%; }
+      #planner-header-row > div:last-child { flex-direction: column !important; width: 100%; }
+      #planner-header-row input[type="date"], #planner-header-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col justify-between antialiased selection:bg-primary selection:text-on-primary overflow-x-hidden relative">
+  
+  <input type="file" id="file-import-input" class="hidden" accept="text/*,.md,.csv,.txt" multiple>
+
+  <div class="fixed top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-primary/4 blur-[140px] pointer-events-none -z-10 dark:opacity-0"></div>
+  <div class="fixed bottom-0 right-1/4 w-[650px] h-[650px] rounded-full bg-secondary-container/30 blur-[150px] pointer-events-none -z-10 dark:opacity-0"></div>
+  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] rounded-full bg-surface-container-high/35 blur-[160px] pointer-events-none -z-10 dark:opacity-0"></div>
+
+  <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-[110] opacity-0 pointer-events-none transition-opacity duration-400 ease-out lg:hidden" onclick="closeMobileMenu()"></div>
+  
+  <header class="fixed top-0 left-0 right-0 h-16 bg-surface/85 backdrop-blur-md z-[100] border-b border-[#e8e2dc]/80 flex items-center">
+    <div class="flex justify-between items-center w-full px-4 sm:px-8 lg:px-10 max-w-7xl mx-auto">
+      <div class="flex items-center gap-2">
+        <button id="burger-btn" aria-label="Ouvrir le menu" class="lg:hidden w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-200 active:scale-95 border border-[#e8e2dc]" onclick="toggleMobileMenu()">
+          <span class="material-symbols-outlined text-[20px]">menu</span>
+        </button>
+        <span class="text-headline-sm font-headline-sm font-bold tracking-tight text-on-surface leading-tight text-[22px] sm:text-[26px] lg:text-[28px] select-none" style="letter-spacing: -0.025em;">CalmDown</span>
+      </div>
+      
+      <nav aria-label="Modes de session" class="hidden md:flex items-center p-1 rounded-full bg-surface-container border border-[#e8e2dc] shadow-inner" id="mode-pills-nav">
+        <button aria-current="page" class="mode-btn active-mode-pill bg-surface text-on-surface font-label-pill text-label-pill rounded-full px-4 py-1.5 transition-all flex items-center gap-2 shadow-sm font-semibold border border-[#e8e2dc] focus:outline-none" id="mode-focus-btn">
+          <span class="mode-dot w-2 h-2 rounded-full bg-primary animate-pulse"></span><span>Focus 25m</span>
+        </button>
+        <button class="mode-btn text-on-surface-variant font-label-pill text-label-pill px-4 py-1.5 transition-all hover:text-on-surface hover:bg-surface-container-low rounded-full active:scale-95 duration-200 flex items-center gap-2 border border-transparent focus:outline-none" id="mode-shortbreak-btn"><span>Pause Courte 5m</span></button>
+        <button class="mode-btn text-on-surface-variant font-label-pill text-label-pill px-4 py-1.5 transition-all hover:text-on-surface hover:bg-surface-container-low rounded-full active:scale-95 duration-200 flex items-center gap-2 border border-transparent focus:outline-none" id="mode-longbreak-btn"><span>Pause Longue 15m</span></button>
+        <button class="mode-btn text-on-surface-variant font-label-pill text-label-pill px-4 py-1.5 transition-all hover:text-on-surface hover:bg-surface-container-low rounded-full active:scale-95 duration-200 flex items-center gap-2 border border-transparent focus:outline-none" id="mode-flow-btn"><span>Flux Continu</span></button>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button aria-label="Basculer le mode sombre" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-200 active:scale-95 border border-[#e8e2dc]" id="theme-toggle-btn">
+          <span class="material-symbols-outlined text-[19px]" id="theme-toggle-icon">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-6 md:pb-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+    
+    <aside id="sidebar" class="lg:col-span-3 flex flex-col gap-5 w-full
+      fixed top-0 bottom-0 left-0 z-[120]
+      w-[85vw] max-w-sm
+      bg-background border-r border-[#e8e2dc]
+      p-5 overflow-y-auto
+      -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+      shadow-2xl
+      lg:static lg:translate-x-0 lg:w-full lg:max-w-none
+      lg:bg-transparent lg:border-r-0 lg:p-0 lg:overflow-visible lg:shadow-none">
+      
+      <div class="lg:hidden flex items-center justify-between pb-3 mb-2 border-b border-[#e8e2dc]">
+        <span class="text-headline-sm font-headline-sm font-bold text-on-surface text-[18px]">Menu</span>
+        <button onclick="closeMobileMenu()" aria-label="Fermer le menu" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="bg-surface rounded-2xl border border-[#e8e2dc] p-4 sm:p-5 shadow-mineral-soft">
+        <div class="flex items-center gap-2 mb-3 px-1 text-primary">
+          <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+          <h2 class="text-label-caps font-label-caps uppercase tracking-wider text-[11px] font-semibold text-on-surface-variant">ACTIONS RAPIDES</h2>
+        </div>
+        <div class="flex flex-col gap-2">
+          <button class="w-full flex items-center px-4 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container border border-[#e8e2dc]/70 transition-all text-left text-body-sm text-on-surface group hover:border-primary/40 active:scale-[0.98]" onclick="openCreateChoice()">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-primary">add_circle</span>
+              <span class="font-medium text-[13px]">Nouvelle Tâche</span>
+            </div>
+          </button>
+          <button class="w-full flex items-center justify-between px-4 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container border border-[#e8e2dc]/70 transition-all text-left text-body-sm text-on-surface group hover:border-primary/40 active:scale-[0.98]" onclick="createNewProject()">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-on-surface-variant">folder</span>
+              <span class="font-medium text-[13px]">Nouveau Projet</span>
+            </div>
+            <span class="material-symbols-outlined text-[16px] text-on-surface-variant/60 group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+          </button>
+          <button class="w-full flex items-center px-4 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container border border-[#e8e2dc]/70 transition-all text-left text-body-sm text-on-surface group hover:border-primary/40 active:scale-[0.98]" onclick="createQuickNote()">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-on-surface-variant">edit_note</span>
+              <span class="font-medium text-[13px]">Note Rapide</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-surface rounded-2xl border border-[#e8e2dc] p-4 sm:p-5 shadow-mineral-soft">
+        <div class="flex items-center gap-2 mb-3 px-1 text-on-surface-variant">
+          <span class="material-symbols-outlined text-[16px]">explore</span>
+          <h2 class="text-label-caps font-label-caps uppercase tracking-wider text-[11px] font-semibold text-on-surface-variant">ESPACES &amp; NAVIGATION</h2>
+        </div>
+        <nav class="flex flex-col gap-1.5" id="sidebar-nav">
+          <a id="nav-timer" class="nav-item lg:hidden flex items-center justify-between px-3.5 py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors cursor-pointer text-[13px]" onclick="switchDashboardView('timer')">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-primary">timer</span>
+              <span>Pomodoro / Timer</span>
+            </div>
+          </a>
+          <a id="nav-todo" class="nav-item flex items-center justify-between px-3.5 py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors cursor-pointer text-[13px]" onclick="switchDashboardView('todo')">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-primary">done_all</span>
+              <span>Liste des tâches</span>
+            </div>
+            <span class="text-[11px] font-mono text-on-surface-variant/70" id="count-todo">0</span>
+          </a>
+          <a id="nav-planner" class="nav-item flex items-center justify-between px-3.5 py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors cursor-pointer text-[13px]" onclick="switchDashboardView('planner')">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-primary">calendar_view_day</span>
+              <span>Planificateur</span>
+            </div>
+            <span class="text-[11px] font-mono text-on-surface-variant/70" id="count-planner">0</span>
+          </a>
+          <a id="nav-projects" class="nav-item flex items-center justify-between px-3.5 py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors cursor-pointer text-[13px]" onclick="switchDashboardView('projects')">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px]">folder</span>
+              <span>Projets</span>
+            </div>
+            <span class="text-[11px] font-mono text-on-surface-variant/70" id="count-projects">0</span>
+          </a>
+          <a id="nav-notes" class="nav-item flex items-center justify-between px-3.5 py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors cursor-pointer text-[13px]" onclick="switchDashboardView('notes')">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+              <span>Notes</span>
+            </div>
+            <span class="text-[11px] font-mono text-on-surface-variant/70" id="count-notes">0</span>
+          </a>
+          <a id="nav-history" class="nav-item flex items-center justify-between px-3.5 py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors cursor-pointer text-[13px]" onclick="switchDashboardView('history')">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px]">history</span>
+              <span>Historique</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main-canvas" class="lg:col-span-9 flex flex-col gap-6 w-full">
+      <section id="timer-hero" class="bg-surface rounded-3xl border border-[#e8e2dc] px-4 py-8 sm:p-10 w-full max-w-md sm:max-w-none mx-auto shadow-mineral-soft lg:shadow-mineral relative overflow-hidden flex flex-col items-center justify-center text-center">
+        <div class="my-2 sm:my-4 flex flex-col items-center w-full">
+          <div class="font-display-timer text-[72px] sm:text-[104px] lg:text-[124px] leading-none text-on-surface tracking-tight tabular-nums select-none flex items-center justify-center font-bold">
+            <span id="timer-minutes">25</span>
+            <span class="text-primary mx-1 sm:mx-2 -mt-2 sm:-mt-4 select-none" id="timer-colon">:</span>
+            <span id="timer-seconds">00</span>
+          </div>
+        </div>
+        <div id="timer-controls" class="mt-5 sm:mt-8 flex items-center justify-center gap-2 sm:gap-4 flex-wrap w-full">
+          <button class="timer-round-btn rounded-full bg-surface-container-low hover:bg-surface-container border border-[#e8e2dc] flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all duration-200 active:scale-95 shadow-sm" id="reset-btn" title="Réinitialiser (R)">
+            <span class="material-symbols-outlined text-[19px] sm:text-[22px]">replay</span>
+          </button>
+          <button class="timer-round-btn rounded-full bg-surface-container-low hover:bg-surface-container border border-[#e8e2dc] flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all duration-200 active:scale-95 shadow-sm" id="prev-btn" title="Cycle précédent">
+            <span class="material-symbols-outlined text-[19px] sm:text-[22px]">skip_previous</span>
+          </button>
+          <button class="timer-play-btn rounded-full bg-[#1e1c1a] hover:bg-black text-[#fff8f4] font-headline-sm font-semibold flex items-center gap-2 sm:gap-3 transition-all duration-300 active:scale-95 shadow-mineral-lg group" id="main-play-btn" title="Démarrer / Suspendre (Espace)">
+            <span class="material-symbols-outlined text-[20px] sm:text-[26px] group-hover:scale-110 transition-transform text-white" id="play-btn-icon">play_arrow</span>
+            <span class="text-label-pill font-label-pill tracking-wider uppercase text-[12px] sm:text-[14px] text-white" id="play-btn-text">Démarrer</span>
+          </button>
+          <button class="timer-round-btn rounded-full bg-surface-container-low hover:bg-surface-container border border-[#e8e2dc] flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all duration-200 active:scale-95 shadow-sm" id="skip-btn" title="Cycle suivant">
+            <span class="material-symbols-outlined text-[19px] sm:text-[22px]">skip_next</span>
+          </button>
+          <button class="timer-add-btn flex items-center rounded-full bg-surface-container-low hover:bg-surface-container border border-[#e8e2dc] text-on-surface font-label-pill font-semibold transition-all duration-200 active:scale-95 shadow-sm" id="add-time-btn" title="Ajouter 5 minutes">+5 min</button>
+        </div>
+      </section>
+
+      <section id="views-container" class="bg-surface rounded-3xl border border-[#e8e2dc] p-4 sm:p-7 shadow-mineral-soft transition-all min-h-[400px]">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4 pb-4 border-b border-[#e8e2dc] mb-3" id="view-header">
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <button id="mobile-back-btn" class="lg:hidden w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex-shrink-0" onclick="switchDashboardView('timer')" title="Retour au Pomodoro">
+              <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+            </button>
+            <span class="material-symbols-outlined text-[20px] text-primary" id="view-icon">segment</span>
+            <h3 class="text-headline-sm font-headline-sm font-bold text-on-surface text-[16px] sm:text-[18px] tracking-tight" id="view-title">Tâches &amp; Sessions en cours</h3>
+          </div>
+          <div class="flex items-center gap-2 self-start lg:self-auto flex-wrap">
+            <button class="hidden items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-[#e8e2dc] text-[12px] font-medium text-on-surface transition-colors" id="view-import-btn" onclick="document.getElementById('file-import-input').click()">
+              <span class="material-symbols-outlined text-[15px]">upload_file</span>
+              <span class="hidden sm:inline">Importer</span>
+            </button>
+            <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-[#e8e2dc] text-[12px] font-medium text-on-surface transition-colors" id="view-action-btn" onclick="createNewTask()">
+              <span class="material-symbols-outlined text-[15px]">add</span>
+              <span class="hidden sm:inline" id="view-action-text">Ajouter une tâche</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="dashboard-views-root">
+          <div class="space-y-4 view-module" id="module-todo" style="display: block;">
+            <div class="overflow-hidden">
+              <div class="hidden sm:grid grid-cols-12 px-5 py-2.5 text-[12px] font-label-caps uppercase text-on-surface-variant/80 border-b border-[#e8e2dc]">
+                <div class="col-span-1 text-center font-semibold">Statut</div>
+                <div class="col-span-7 font-semibold pl-2">Tâche</div>
+                <div class="col-span-3 text-right font-semibold">Date</div>
+                <div class="col-span-1 text-right font-semibold"></div>
+              </div>
+              <div class="font-body-lg" id="tasks-list-container"></div>
+              <div class="px-4 sm:px-5 py-4 border-t border-[#e8e2dc]/60 flex items-center gap-3">
+                <span class="material-symbols-outlined text-outline text-[20px] flex-shrink-0">add_circle</span>
+                <input class="w-full bg-transparent border-0 focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 p-0 text-[14px] focus:outline-none" id="quick-task-input" placeholder="Ajouter une tâche • Entrée" type="text"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4 view-module hidden" id="module-projects">
+            <div class="mb-4">
+                <div class="relative w-full max-w-sm">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+                    <input type="text" id="search-projects" class="w-full bg-surface-container border-0 rounded-full pl-10 pr-4 py-2 text-[14px] text-on-surface focus:ring-1 focus:ring-primary focus:outline-none placeholder:text-on-surface-variant" placeholder="Rechercher un projet...">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="projects-list-container"></div>
+          </div>
+
+          <div class="space-y-4 view-module hidden" id="module-project-details">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 mt-2 gap-4">
+                <div class="flex items-center gap-3">
+                    <button onclick="switchDashboardView('projects')" class="p-2 rounded-full hover:bg-surface-container transition-colors text-on-surface-variant hover:text-on-surface">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <h4 class="font-bold text-[20px] text-on-surface" id="detail-project-title">Nom du projet</h4>
+                    <span class="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full ml-2 hidden sm:inline-block dynamic-status" id="detail-project-status"></span>
+                </div>
+                <div class="flex gap-2">
+                    <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-[#e8e2dc] text-[12px] font-medium text-on-surface transition-colors" onclick="document.getElementById('file-import-input').click()">
+                        <span class="material-symbols-outlined text-[15px]">upload_file</span><span class="hidden sm:inline">Importer</span>
+                    </button>
+                    <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary hover:bg-primary/90 text-[12px] font-medium text-white transition-colors" onclick="createProjectNote()">
+                        <span class="material-symbols-outlined text-[15px]">add</span><span>Nouvelle note</span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col gap-3 mt-6" id="project-notes-list-container"></div>
+          </div>
+
+          <div class="space-y-4 view-module hidden" id="module-notes">
+             <div class="mb-4">
+                <div class="relative w-full max-w-sm">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+                    <input type="text" id="search-notes" class="w-full bg-surface-container border-0 rounded-full pl-10 pr-4 py-2 text-[14px] text-on-surface focus:ring-1 focus:ring-primary focus:outline-none placeholder:text-on-surface-variant" placeholder="Rechercher une note...">
+                </div>
+            </div>
+            <div class="flex flex-col gap-3" id="notes-list-container"></div>
+          </div>
+
+          <div class="space-y-4 view-module hidden" id="module-note-editor">
+            <div class="flex items-center justify-between mb-4 mt-2 pb-3 border-b border-[#e8e2dc]">
+                <div class="flex items-center gap-3 w-full">
+                    <button onclick="goBackFromNote()" class="p-2 rounded-full hover:bg-surface-container transition-colors text-on-surface-variant hover:text-on-surface flex-shrink-0">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <input type="text" id="editor-note-title" class="font-bold text-[18px] sm:text-[20px] text-on-surface bg-transparent border-0 focus:ring-0 p-0 w-full focus:outline-none" placeholder="Titre de la note" />
+                </div>
+                <div class="text-[12px] text-on-surface-variant/70 font-mono flex-shrink-0 ml-2" id="editor-note-status">Enregistré</div>
+            </div>
+            <textarea id="editor-note-content" class="w-full min-h-[50vh] bg-transparent border-0 focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 p-2 text-[15px] sm:text-[16px] resize-none focus:outline-none" placeholder="Commencez à écrire votre note ici..."></textarea>
+          </div>
+
+          <div class="space-y-4 view-module hidden" id="module-history">
+             <div class="flex flex-col gap-3" id="history-list-container"></div>
+          </div>
+
+          <div class="space-y-6 view-module hidden" id="module-planner">
+            
+            <div class="flex flex-col gap-4">
+              <div id="planner-header-row" class="flex flex-row items-center justify-between gap-4">
+                <div class="flex items-baseline gap-3 flex-wrap">
+                  <h4 class="font-headline-md text-[22px] sm:text-[30px] font-bold tracking-tight text-on-surface uppercase leading-tight" id="planner-date-display">--/--/----</h4>
+                  <span class="text-body-sm font-body-sm text-on-surface-variant font-medium" id="planner-day-display">—</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="date" id="planner-date-picker" class="bg-surface border border-[#e8e2dc] rounded-full px-4 py-2 text-[13px] text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-mono text-center" />
+                  <button class="flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-primary hover:bg-primary/90 text-white text-[13px] font-medium transition-colors shadow-sm" onclick="openPlannerModal()">
+                    <span class="material-symbols-outlined text-[18px]">add</span>
+                    <span class="hidden sm:inline">Planifier un bloc</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-1 bg-surface p-1 rounded-lg border border-[#e8e2dc] shadow-sm w-fit" id="planner-week-nav"></div>
+            </div>
+
+            <div class="pb-2 focus-wrap" id="focus-wrap">
+              <div class="focus-display is-empty" id="planner-main-focus-display" onclick="activateFocusEdit()">Cliquez pour définir votre priorité majeure du jour...</div>
+              <input type="text" class="focus-edit" id="planner-main-focus-edit" placeholder="Définissez votre priorité majeure du jour..." />
+            </div>
+
+            <div class="pt-2">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" id="planner-blocks-container"></div>
+
+              <div id="planner-empty-state" class="flex flex-col items-center justify-center py-12 text-center">
+                <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-[32px] text-outline">calendar_today</span>
+                </div>
+                <h4 class="font-semibold text-[16px] text-on-surface mb-1">Aucun bloc planifié</h4>
+                <p class="text-[13px] text-on-surface-variant max-w-sm">Cliquez sur « Planifier un bloc » pour commencer à organiser cette journée.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="input-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-surface rounded-3xl p-6 sm:p-8 w-[90%] max-w-md shadow-mineral-lg transform scale-95 transition-transform duration-200 border border-[#e8e2dc]" id="input-modal-content">
+        <h3 class="text-headline-sm font-headline-sm font-bold text-on-surface mb-4" id="input-modal-title">Nouveau...</h3>
+        <input type="text" id="input-modal-field" class="w-full bg-surface-container border border-[#e8e2dc] rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary mb-6" placeholder="...">
+        <div class="flex justify-end gap-3">
+            <button class="px-5 py-2.5 rounded-full font-medium text-[14px] text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closeModal()">Annuler</button>
+            <button class="px-5 py-2.5 rounded-full font-medium text-[14px] bg-primary text-white hover:bg-primary/90 shadow-sm transition-colors" id="input-modal-submit">Créer</button>
+        </div>
+    </div>
+  </div>
+
+  <div id="planner-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-surface rounded-3xl p-6 sm:p-8 w-[90%] max-w-lg shadow-mineral-lg transform scale-95 transition-transform duration-200 border border-[#e8e2dc] max-h-[90vh] overflow-y-auto" id="planner-modal-content">
+      <h3 class="text-headline-sm font-headline-sm font-bold text-on-surface mb-5" id="planner-modal-title">Planifier un bloc</h3>
+      
+      <div class="space-y-4">
+        <div>
+          <label class="block text-[12px] font-medium text-on-surface-variant mb-1">Date</label>
+          <input type="date" id="planner-block-date" class="w-full bg-surface-container border border-[#e8e2dc] rounded-xl px-3 py-2.5 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-[14px]">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[12px] font-medium text-on-surface-variant mb-1">Début</label>
+            <input type="time" id="planner-start-time" class="w-full bg-surface-container border border-[#e8e2dc] rounded-xl px-3 py-2.5 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-[14px]">
+          </div>
+          <div>
+            <label class="block text-[12px] font-medium text-on-surface-variant mb-1">Fin</label>
+            <input type="time" id="planner-end-time" class="w-full bg-surface-container border border-[#e8e2dc] rounded-xl px-3 py-2.5 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-[14px]">
+          </div>
+        </div>
+        <div>
+          <label class="block text-[12px] font-medium text-on-surface-variant mb-1">Titre <span class="text-primary">*</span></label>
+          <input type="text" id="planner-title" class="w-full bg-surface-container border border-[#e8e2dc] rounded-xl px-4 py-2.5 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-[14px]" placeholder="Ex: Monographie Chapitre 02">
+        </div>
+        <div>
+          <label class="block text-[12px] font-medium text-on-surface-variant mb-1">Description (optionnel)</label>
+          <textarea id="planner-description" rows="2" class="w-full bg-surface-container border border-[#e8e2dc] rounded-xl px-4 py-2.5 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-[14px] resize-none" placeholder="Détails du bloc..."></textarea>
+        </div>
+        <div>
+          <label class="block text-[12px] font-medium text-on-surface-variant mb-1">Statut</label>
+          <select id="planner-status" class="w-full bg-surface-container border border-[#e8e2dc] rounded-xl px-4 py-2.5 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-[14px]">
+            <option value="planifie">Planifié</option>
+            <option value="en-cours">En cours</option>
+            <option value="termine">Terminé</option>
+            <option value="libre">Libre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-[#e8e2dc]">
+        <button class="px-5 py-2.5 rounded-full font-medium text-[14px] text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closePlannerModal()">Annuler</button>
+        <button class="px-5 py-2.5 rounded-full font-medium text-[14px] bg-primary text-white hover:bg-primary/90 shadow-sm transition-colors" id="planner-modal-submit">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="create-choice-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-surface rounded-3xl p-6 sm:p-8 w-[90%] max-w-2xl shadow-mineral-lg transform scale-95 transition-transform duration-200 border border-[#e8e2dc]" id="create-choice-modal-content">
+      <div class="flex items-start justify-between mb-6">
+        <div>
+          <h3 class="text-headline-sm font-headline-sm font-bold text-on-surface text-[20px]">Que souhaitez-vous créer ?</h3>
+          <p class="text-[13px] text-on-surface-variant mt-1">Choisissez le type d'élément à ajouter à votre espace.</p>
+        </div>
+        <button onclick="closeCreateChoice()" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <button class="text-left p-6 rounded-2xl border border-[#e8e2dc] bg-surface-container-low hover:bg-surface-container hover:border-primary/50 transition-all group active:scale-[0.98] flex flex-col gap-4" onclick="chooseCreateType('todo')">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[26px] text-primary">done_all</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm font-bold text-[16px] text-on-surface group-hover:text-primary transition-colors">Tâche To-Do</h4>
+            <p class="text-[12.5px] text-on-surface-variant mt-1.5 leading-relaxed">Ajoutez une tâche à votre liste opérationnelle avec horodatage automatique.</p>
+          </div>
+          <div class="flex items-center gap-1.5 text-[12px] font-mono text-primary font-semibold mt-auto">
+            <span>Ajouter à la To-Do</span>
+            <span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+          </div>
+        </button>
+
+        <button class="text-left p-6 rounded-2xl border border-[#e8e2dc] bg-surface-container-low hover:bg-surface-container hover:border-primary/50 transition-all group active:scale-[0.98] flex flex-col gap-4" onclick="chooseCreateType('planner')">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[26px] text-primary">calendar_view_day</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm font-bold text-[16px] text-on-surface group-hover:text-primary transition-colors">Bloc Planifié</h4>
+            <p class="text-[12.5px] text-on-surface-variant mt-1.5 leading-relaxed">Réservez un créneau temporel dans votre planificateur journalier.</p>
+          </div>
+          <div class="flex items-center gap-1.5 text-[12px] font-mono text-primary font-semibold mt-auto">
+            <span>Planifier un bloc</span>
+            <span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="w-full bg-surface/90 backdrop-blur-md border-t border-[#e8e2dc] py-3.5 px-6 sm:px-10 z-20">
+    <div class="max-w-7xl mx-auto flex justify-between items-center text-[12px] text-on-surface-variant">
+      <span>CalmDown © 2026</span>
+      <span>Restez focus.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      let state = {
+        tasks: [], projects: [], notes: [], history: [],
+        plannerBlocks: [], plannerMainFocus: {}
+      };
+
+      let activeProjectId = null;
+      let activeNoteId = null;
+      let currentActiveView = 'todo';
+      let lastViewBeforeNote = 'notes';
+      let editingPlannerBlockId = null;
+      let selectedPlannerDate = new Date().toISOString().split('T')[0];
+      let currentMobileView = 'timer';
+
+      function escapeHTML(str) {
+        if(!str) return '';
+        return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag]));
+      }
+      function getRelativeTime(timestamp) {
+        const diffInSeconds = Math.floor((Date.now() - timestamp) / 1000);
+        if (diffInSeconds < 60) return "À l'instant";
+        const diffInMinutes = Math.floor(diffInSeconds / 60);
+        if (diffInMinutes < 60) return "Il y a " + diffInMinutes + " min";
+        const diffInHours = Math.floor(diffInMinutes / 60);
+        if (diffInHours < 24) return "Il y a " + diffInHours + " h";
+        const diffInDays = Math.floor(diffInHours / 24);
+        if (diffInDays === 1) return "Hier";
+        return new Date(timestamp).toLocaleDateString('fr-FR');
+      }
+      function getProjectStatus(timestamp) {
+         const diffInMinutes = Math.floor((Date.now() - timestamp) / 60000);
+         return diffInMinutes < 2 ? "Nouveau" : "Actif";
+      }
+      function computeDuration(start, end) {
+        if (!start || !end) return '';
+        const [h1, m1] = start.split(':').map(Number);
+        const [h2, m2] = end.split(':').map(Number);
+        let minutes = (h2 * 60 + m2) - (h1 * 60 + m1);
+        if (minutes < 0) minutes += 24 * 60;
+        const h = Math.floor(minutes / 60);
+        const m = minutes % 60;
+        if (h > 0 && m > 0) return h + 'h ' + m + 'm';
+        if (h > 0) return h + 'h';
+        return m + 'm';
+      }
+      function formatDateFR(dateStr) {
+        const d = new Date(dateStr + 'T00:00:00');
+        const days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+        const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+        return {
+          short: d.getDate().toString().padStart(2,'0') + '/' + (d.getMonth()+1).toString().padStart(2,'0') + '/' + d.getFullYear(),
+          long: days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear()
+        };
+      }
+      function getWeekDays(dateStr) {
+        const d = new Date(dateStr + 'T00:00:00');
+        const day = d.getDay();
+        const diffToMonday = (day === 0 ? -6 : 1 - day);
+        const monday = new Date(d);
+        monday.setDate(d.getDate() + diffToMonday);
+        const days = [];
+        for (let i = 0; i < 7; i++) {
+          const dd = new Date(monday);
+          dd.setDate(monday.getDate() + i);
+          const iso = dd.getFullYear() + '-' + String(dd.getMonth()+1).padStart(2,'0') + '-' + String(dd.getDate()).padStart(2,'0');
+          days.push(iso);
+        }
+        return days;
+      }
+
+      setInterval(() => {
+          document.querySelectorAll('.dynamic-time').forEach(el => {
+             const ts = parseInt(el.getAttribute('data-timestamp'));
+             if(ts) el.textContent = getRelativeTime(ts);
+          });
+          document.querySelectorAll('.dynamic-status').forEach(el => {
+             const ts = parseInt(el.getAttribute('data-timestamp'));
+             if(ts) el.textContent = getProjectStatus(ts);
+          });
+      }, 60000);
+
+      // ============ FONCTIONS DE NAVIGATION MOBILE ============
+      window.openMobileMenu = function() {
+        document.getElementById('sidebar').classList.remove('-translate-x-full');
+        const overlay = document.getElementById('sidebar-overlay');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+      };
+      window.closeMobileMenu = function() {
+        document.getElementById('sidebar').classList.add('-translate-x-full');
+        const overlay = document.getElementById('sidebar-overlay');
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+      };
+      window.toggleMobileMenu = function() {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar.classList.contains('-translate-x-full')) {
+          openMobileMenu();
+        } else {
+          closeMobileMenu();
+        }
+      };
+
+      function applyResponsiveLayout() {
+        const isMobile = window.innerWidth < 1024;
+        if (isMobile) {
+          if (currentMobileView === 'timer') {
+            document.body.classList.remove('mobile-view-active');
+          } else {
+            document.body.classList.add('mobile-view-active');
+          }
+        } else {
+          document.body.classList.remove('mobile-view-active');
+        }
+      }
+
+      window.addEventListener('resize', applyResponsiveLayout);
+
+      function updateCounters() {
+        document.getElementById('count-todo').textContent = state.tasks.length;
+        document.getElementById('count-projects').textContent = state.projects.length;
+        document.getElementById('count-notes').textContent = state.notes.length;
+        document.getElementById('count-planner').textContent = state.plannerBlocks.length;
+      }
+
+      function renderTasks() {
+        const container = document.getElementById('tasks-list-container');
+        container.innerHTML = '';
+        if(state.tasks.length === 0) {
+            container.innerHTML = `<p class="text-[13px] text-on-surface-variant p-5 text-center">Aucune tâche en cours.</p>`;
+        } else {
+            state.tasks.forEach(task => {
+            container.insertAdjacentHTML('beforeend', `
+                <div class="flex sm:grid sm:grid-cols-12 items-center gap-3 sm:gap-0 px-4 sm:px-5 py-3.5 sm:py-4 hover:bg-surface-container-low/40 transition-colors border-b border-[#e8e2dc]/40 last:border-0">
+                <div class="sm:col-span-1 flex sm:justify-center flex-shrink-0">
+                    <label class="relative flex items-center justify-center cursor-pointer p-1">
+                    <input type="checkbox" ${task.done ? 'checked' : ''} onchange="toggleTask('${task.id}')" class="form-checkbox text-[#9d3e1a] focus:ring-[#9d3e1a] focus:ring-offset-0 peer appearance-none w-5 h-5 rounded border-2 border-[#c5bdb7] transition-all cursor-pointer bg-transparent" />
+                    <span class="material-symbols-outlined text-white text-[14px] absolute pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity font-bold select-none">check</span>
+                    </label>
+                </div>
+                <div class="flex-1 min-w-0 sm:col-span-7 sm:pl-2 flex items-center gap-2.5">
+                    <span class="w-2 h-2 rounded-full ${task.done ? 'bg-outline-variant' : 'bg-primary'} flex-shrink-0 transition-colors"></span>
+                    <span class="font-medium text-on-surface transition-colors text-[14px] sm:text-[16px] truncate ${task.done ? 'line-through opacity-50' : ''}" style="font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.01em;">${escapeHTML(task.title)}</span>
+                </div>
+                <div class="hidden sm:block sm:col-span-3 text-right font-mono text-[13px] text-on-surface-variant font-medium dynamic-time" data-timestamp="${task.createdAt}">
+                    ${getRelativeTime(task.createdAt)}
+                </div>
+                <div class="sm:col-span-1 flex justify-end flex-shrink-0">
+                    <button onclick="event.stopPropagation(); deleteTask('${task.id}')" class="text-on-surface-variant hover:text-error transition-colors p-1" title="Supprimer la tâche">
+                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                    </button>
+                </div>
+                </div>
+            `);
+            });
+        }
+        updateCounters();
+      }
+
+      function renderProjects(searchQuery = '') {
+        const container = document.getElementById('projects-list-container');
+        container.innerHTML = '';
+        let filtered = state.projects;
+        if(searchQuery.trim() !== '') {
+            filtered = state.projects.filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()));
+        }
+        if(filtered.length === 0) {
+            container.innerHTML = `<div class="col-span-full"><p class="text-[13px] text-on-surface-variant p-5 text-center">Aucun projet trouvé.</p></div>`;
+        } else {
+            filtered.forEach(proj => {
+            container.insertAdjacentHTML('beforeend', `
+                <div class="p-4 rounded-2xl border border-[#e8e2dc] bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors shadow-sm relative group" onclick="openProjectDetails('${proj.id}')">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">folder_open</span>
+                        <span class="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full dynamic-status" data-timestamp="${proj.createdAt}">${getProjectStatus(proj.createdAt)}</span>
+                    </div>
+                    <button onclick="event.stopPropagation(); deleteProject('${proj.id}')" class="text-on-surface-variant hover:text-error opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity p-1">
+                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                    </button>
+                </div>
+                <h4 class="font-semibold text-[15px] text-on-surface mb-1">${escapeHTML(proj.title)}</h4>
+                <p class="text-[12px] text-on-surface-variant">Créé ${getRelativeTime(proj.createdAt)}</p>
+                </div>
+            `);
+            });
+        }
+        updateCounters();
+      }
+
+      function renderNotes(projectId = null, containerId, searchQuery = '') {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        let filteredNotes = projectId ? state.notes.filter(n => n.projectId === projectId) : state.notes;
+        if(searchQuery.trim() !== '') {
+            filteredNotes = filteredNotes.filter(n => n.title.toLowerCase().includes(searchQuery.toLowerCase()));
+        }
+        if (filteredNotes.length === 0) {
+            container.innerHTML = `<p class="text-[13px] text-on-surface-variant p-4 text-center">Aucune note trouvée.</p>`;
+        } else {
+            filteredNotes.forEach(note => {
+            const parentProj = note.projectId ? state.projects.find(p => p.id === note.projectId) : null;
+            const badgeHTML = parentProj && containerId === 'notes-list-container' ? `<span class="text-[10px] font-mono bg-surface border border-[#e8e2dc] px-2 py-0.5 rounded-full mt-2 inline-block">Projet: ${escapeHTML(parentProj.title)}</span>` : '';
+            container.insertAdjacentHTML('beforeend', `
+                <div class="p-4 rounded-2xl border border-[#e8e2dc] bg-surface-container-low cursor-pointer hover:border-primary/40 transition-colors shadow-sm flex flex-col relative group" onclick="openNoteEditor('${note.id}')">
+                    <div class="flex justify-between items-start mb-1.5">
+                        <h4 class="font-semibold text-[15px] text-on-surface flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px] text-on-surface-variant">description</span>
+                            ${escapeHTML(note.title)}
+                        </h4>
+                        <button onclick="event.stopPropagation(); deleteNote('${note.id}', '${containerId}', '${projectId}')" class="text-on-surface-variant hover:text-error opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity p-1">
+                            <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                    </div>
+                    <p class="text-[13px] text-on-surface-variant/80 line-clamp-2">${escapeHTML(note.desc || note.content.substring(0, 80) || 'Nouvelle note vide...')}</p>
+                    <div class="mt-2 flex justify-between items-center w-full">
+                        ${badgeHTML}
+                        <span class="text-[11px] font-mono text-on-surface-variant/60 ml-auto dynamic-time" data-timestamp="${note.createdAt}">${getRelativeTime(note.createdAt)}</span>
+                    </div>
+                </div>
+            `);
+            });
+        }
+        updateCounters();
+      }
+
+      function renderHistory() {
+          const container = document.getElementById('history-list-container');
+          container.innerHTML = '';
+          if(state.history.length === 0) {
+              container.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-10 text-center">
+                    <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-[32px] text-outline">history</span>
+                    </div>
+                    <h4 class="font-semibold text-[16px] text-on-surface mb-1">Historique vide</h4>
+                    <p class="text-[13px] text-on-surface-variant">Les projets et notes que vous visitez apparaîtront ici.</p>
+                </div>`;
+              return;
+          }
+          state.history.forEach(item => {
+              const icon = item.type === 'project' ? 'folder_open' : 'description';
+              const label = item.type === 'project' ? 'Projet visité' : 'Note visitée';
+              const action = item.type === 'project' ? `openProjectDetails('${item.id}')` : `openNoteEditor('${item.id}')`;
+              container.insertAdjacentHTML('beforeend', `
+                <div class="p-4 rounded-2xl border border-[#e8e2dc] bg-surface-container-low cursor-pointer hover:border-primary/40 transition-colors shadow-sm flex items-center justify-between gap-3" onclick="${action}">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-[20px] text-primary">${icon}</span>
+                        </div>
+                        <div class="min-w-0">
+                            <h4 class="font-semibold text-[14px] sm:text-[15px] text-on-surface truncate">${escapeHTML(item.title)}</h4>
+                            <span class="text-[11px] sm:text-[12px] text-on-surface-variant">${label}</span>
+                        </div>
+                    </div>
+                    <span class="text-[11px] sm:text-[12px] font-mono text-on-surface-variant flex-shrink-0 dynamic-time" data-timestamp="${item.visitedAt}">${getRelativeTime(item.visitedAt)}</span>
+                </div>
+              `);
+          });
+      }
+
+      function addToHistory(item, type) {
+          state.history = state.history.filter(h => h.id !== item.id);
+          state.history.unshift({ ...item, type: type, visitedAt: Date.now() });
+          if(state.history.length > 30) state.history.pop();
+          renderHistory();
+      }
+
+      function renderFocusDisplay() {
+        const wrap = document.getElementById('focus-wrap');
+        const display = document.getElementById('planner-main-focus-display');
+        const edit = document.getElementById('planner-main-focus-edit');
+        if (!wrap || !display || !edit) return;
+        wrap.classList.remove('editing');
+        const savedValue = state.plannerMainFocus[selectedPlannerDate] || '';
+        edit.value = savedValue;
+        if (savedValue.trim() === '') {
+          display.textContent = 'Cliquez pour définir votre priorité majeure du jour...';
+          display.classList.add('is-empty');
+        } else {
+          display.textContent = savedValue;
+          display.classList.remove('is-empty');
+        }
+      }
+
+      function renderPlannerHeader() {
+        const dateInfo = formatDateFR(selectedPlannerDate);
+        document.getElementById('planner-date-display').textContent = dateInfo.short;
+        document.getElementById('planner-day-display').textContent = dateInfo.long;
+        const picker = document.getElementById('planner-date-picker');
+        if (picker) picker.value = selectedPlannerDate;
+        renderFocusDisplay();
+        const nav = document.getElementById('planner-week-nav');
+        const weekDays = getWeekDays(selectedPlannerDate);
+        // MODIFICATION ICI : Jours en Français (LU, MA, ME, JE, VE, SA, DI)
+        const dayLabels = ['LU','MA','ME','JE','VE','SA','DI'];
+        nav.innerHTML = weekDays.map((iso, i) => {
+          const isSelected = iso === selectedPlannerDate;
+          const cls = isSelected
+            ? 'w-8 h-8 sm:w-9 sm:h-9 rounded-md text-[10px] sm:text-[11px] font-mono font-bold bg-[#1e1c1a] text-[#fff8f4] shadow-sm flex items-center justify-center cursor-pointer transition-all'
+            : 'w-8 h-8 sm:w-9 sm:h-9 rounded-md text-[10px] sm:text-[11px] font-mono font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center justify-center cursor-pointer';
+          return `<button class="${cls}" onclick="setPlannerDate('${iso}')" title="${iso}">${dayLabels[i]}</button>`;
+        }).join('');
+      }
+
+      function renderPlannerBlocks() {
+        const container = document.getElementById('planner-blocks-container');
+        const emptyState = document.getElementById('planner-empty-state');
+        if (!container) return;
+        const dayBlocks = state.plannerBlocks
+          .filter(b => b.date === selectedPlannerDate)
+          .sort((a, b) => a.start < b.start ? -1 : (a.start > b.start ? 1 : 0));
+        if (dayBlocks.length === 0) {
+          container.innerHTML = '';
+          if (emptyState) emptyState.style.display = 'flex';
+          updateCounters();
+          return;
+        }
+        if (emptyState) emptyState.style.display = 'none';
+        container.innerHTML = dayBlocks.map(block => {
+          const duration = computeDuration(block.start, block.end);
+          let statusClass = '', statusLabel = '', borderClass = 'border-[#e0d8d0]', bgClass = 'bg-surface';
+          switch (block.status) {
+            case 'en-cours': borderClass = 'border-2 border-primary'; bgClass = 'bg-primary/5'; statusClass = 'bg-primary text-white font-bold tracking-wider'; statusLabel = 'ACTIF'; break;
+            case 'termine': statusClass = 'bg-surface-container text-secondary font-semibold'; statusLabel = 'Terminé'; break;
+            case 'libre': borderClass = 'border-dashed border-[#dcd3cb]'; bgClass = 'bg-surface/50'; statusClass = 'text-on-surface-variant/50'; statusLabel = 'Libre'; break;
+            default: statusClass = 'bg-surface-container-low text-on-surface-variant font-medium'; statusLabel = 'PLANIFIÉ';
+          }
+          return `
+            <div class="p-5 sm:p-6 rounded-2xl border ${borderClass} ${bgClass} shadow-sm hover:border-primary/40 hover:shadow-mineral-soft transition-all cursor-pointer group flex flex-col gap-4" onclick="openPlannerModal('${block.id}')">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[13px] sm:text-[14px] font-mono font-semibold text-on-surface tracking-tight">${block.start} - ${block.end}</span>
+                <span class="text-[10px] sm:text-[10.5px] font-mono uppercase px-2 sm:px-2.5 py-1 rounded-md ${statusClass} flex-shrink-0">${statusLabel}</span>
+              </div>
+              <p class="text-[16px] sm:text-[18px] font-headline-sm font-semibold text-on-surface leading-snug line-clamp-2">${escapeHTML(block.title)}</p>
+              <div class="flex items-center justify-between pt-2 border-t border-[#e8e2dc]/60">
+                <span class="text-[12px] sm:text-[13px] font-mono text-on-surface-variant">Durée : ${duration || '—'}</span>
+                <button onclick="event.stopPropagation(); deletePlannerBlock('${block.id}')" class="text-on-surface-variant hover:text-error opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity p-1">
+                  <span class="material-symbols-outlined text-[18px]">delete</span>
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+        updateCounters();
+      }
+
+      function renderPlanner() {
+        renderPlannerHeader();
+        renderPlannerBlocks();
+      }
+
+      window.activateFocusEdit = function() {
+        const wrap = document.getElementById('focus-wrap');
+        const edit = document.getElementById('planner-main-focus-edit');
+        if (!wrap || !edit) return;
+        wrap.classList.add('editing');
+        edit.focus();
+        const len = edit.value.length;
+        edit.setSelectionRange(len, len);
+      };
+
+      function commitFocusEdit() {
+        const wrap = document.getElementById('focus-wrap');
+        const edit = document.getElementById('planner-main-focus-edit');
+        if (!wrap || !edit) return;
+        state.plannerMainFocus[selectedPlannerDate] = edit.value;
+        wrap.classList.remove('editing');
+        renderFocusDisplay();
+      }
+
+      window.setPlannerDate = function(iso) {
+        const wrap = document.getElementById('focus-wrap');
+        if (wrap && wrap.classList.contains('editing')) {
+          const edit = document.getElementById('planner-main-focus-edit');
+          if (edit) state.plannerMainFocus[selectedPlannerDate] = edit.value;
+        }
+        selectedPlannerDate = iso;
+        renderPlanner();
+      };
+
+      window.deletePlannerBlock = function(id) {
+        if (confirm("Supprimer ce bloc temporel ?")) {
+          state.plannerBlocks = state.plannerBlocks.filter(b => b.id !== id);
+          renderPlannerBlocks();
+        }
+      };
+
+      window.openPlannerModal = function(blockId = null) {
+        closeMobileMenu();
+        editingPlannerBlockId = blockId;
+        const modal = document.getElementById('planner-modal');
+        const content = document.getElementById('planner-modal-content');
+        const title = document.getElementById('planner-modal-title');
+        const dateInput = document.getElementById('planner-block-date');
+        const startInput = document.getElementById('planner-start-time');
+        const endInput = document.getElementById('planner-end-time');
+        const titleInput = document.getElementById('planner-title');
+        const descInput = document.getElementById('planner-description');
+        const statusSelect = document.getElementById('planner-status');
+        if (blockId) {
+          const block = state.plannerBlocks.find(b => b.id === blockId);
+          if (block) {
+            title.textContent = 'Modifier le bloc';
+            dateInput.value = block.date;
+            startInput.value = block.start;
+            endInput.value = block.end;
+            titleInput.value = block.title;
+            descInput.value = block.description || '';
+            statusSelect.value = block.status;
+          }
+        } else {
+          title.textContent = 'Planifier un bloc';
+          dateInput.value = selectedPlannerDate;
+          const now = new Date();
+          const h = now.getHours().toString().padStart(2, '0');
+          const m = now.getMinutes().toString().padStart(2, '0');
+          startInput.value = h + ':' + m;
+          endInput.value = ((now.getHours() + 1) % 24).toString().padStart(2, '0') + ':' + m;
+          titleInput.value = '';
+          descInput.value = '';
+          statusSelect.value = 'planifie';
+        }
+        modal.classList.remove('hidden');
+        void modal.offsetWidth;
+        modal.classList.remove('opacity-0');
+        content.classList.remove('scale-95');
+        titleInput.focus();
+      };
+
+      window.closePlannerModal = function() {
+        const modal = document.getElementById('planner-modal');
+        const content = document.getElementById('planner-modal-content');
+        modal.classList.add('opacity-0');
+        content.classList.add('scale-95');
+        setTimeout(() => modal.classList.add('hidden'), 200);
+        editingPlannerBlockId = null;
+      };
+
+      document.getElementById('planner-modal-submit').addEventListener('click', () => {
+        const date = document.getElementById('planner-block-date').value;
+        const start = document.getElementById('planner-start-time').value;
+        const end = document.getElementById('planner-end-time').value;
+        const title = document.getElementById('planner-title').value.trim();
+        const description = document.getElementById('planner-description').value.trim();
+        const status = document.getElementById('planner-status').value;
+        if (!title) { alert('Veuillez saisir un titre pour le bloc.'); return; }
+        if (!date) { alert('Veuillez choisir une date.'); return; }
+        if (!start || !end) { alert('Veuillez spécifier les heures de début et de fin.'); return; }
+        if (editingPlannerBlockId) {
+          const block = state.plannerBlocks.find(b => b.id === editingPlannerBlockId);
+          if (block) {
+            block.date = date; block.start = start; block.end = end;
+            block.title = title; block.description = description; block.status = status;
+          }
+        } else {
+          state.plannerBlocks.push({
+            id: 'pb' + Date.now() + Math.random().toString(36).substr(2, 5),
+            date, start, end, title, description, status, createdAt: Date.now()
+          });
+        }
+        selectedPlannerDate = date;
+        renderPlanner();
+        closePlannerModal();
+      });
+
+      const focusEditInput = document.getElementById('planner-main-focus-edit');
+      if (focusEditInput) {
+        focusEditInput.addEventListener('input', function(e) {
+          state.plannerMainFocus[selectedPlannerDate] = e.target.value;
+        });
+        focusEditInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') { e.preventDefault(); commitFocusEdit(); }
+          else if (e.key === 'Escape') { e.preventDefault(); renderFocusDisplay(); }
+        });
+        focusEditInput.addEventListener('blur', function() {
+          setTimeout(() => {
+            const wrap = document.getElementById('focus-wrap');
+            if (wrap && wrap.classList.contains('editing')) commitFocusEdit();
+          }, 100);
+        });
+      }
+
+      document.getElementById('planner-date-picker')?.addEventListener('change', function(e) {
+        const wrap = document.getElementById('focus-wrap');
+        if (wrap && wrap.classList.contains('editing')) {
+          const edit = document.getElementById('planner-main-focus-edit');
+          if (edit) state.plannerMainFocus[selectedPlannerDate] = edit.value;
+        }
+        selectedPlannerDate = e.target.value;
+        renderPlanner();
+      });
+
+      document.getElementById('search-projects')?.addEventListener('input', e => renderProjects(e.target.value));
+      document.getElementById('search-notes')?.addEventListener('input', e => renderNotes(null, 'notes-list-container', e.target.value));
+
+      window.toggleTask = function(id) {
+        const t = state.tasks.find(x => x.id === id);
+        if(t) { t.done = !t.done; renderTasks(); }
+      };
+      window.deleteTask = function(id) {
+        state.tasks = state.tasks.filter(t => t.id !== id);
+        renderTasks();
+      };
+      window.deleteProject = function(id) {
+        if(confirm("Supprimer ce projet et toutes ses notes ?")) {
+            state.projects = state.projects.filter(p => p.id !== id);
+            state.notes = state.notes.filter(n => n.projectId !== id);
+            state.history = state.history.filter(h => h.id !== id && h.projectId !== id);
+            renderProjects();
+            renderNotes(null, 'notes-list-container');
+            renderHistory();
+        }
+      };
+      window.deleteNote = function(id, containerId, currentProjId) {
+        state.notes = state.notes.filter(n => n.id !== id);
+        state.history = state.history.filter(h => h.id !== id);
+        if (currentProjId && currentProjId !== 'null') renderNotes(currentProjId, 'project-notes-list-container');
+        renderNotes(null, 'notes-list-container');
+        renderHistory();
+      };
+
+      window.openNoteEditor = function(id) {
+          activeNoteId = id;
+          const note = state.notes.find(n => n.id === id);
+          if(note) {
+              if (currentActiveView !== 'note-editor') lastViewBeforeNote = currentActiveView;
+              document.getElementById('editor-note-title').value = note.title;
+              document.getElementById('editor-note-content').value = note.content || "";
+              addToHistory(note, 'note');
+              switchDashboardView('note-editor');
+          }
+      };
+
+      document.getElementById('editor-note-title')?.addEventListener('input', function(e) {
+          if(activeNoteId) {
+              const note = state.notes.find(n => n.id === activeNoteId);
+              if(note) note.title = e.target.value;
+          }
+      });
+      document.getElementById('editor-note-content')?.addEventListener('input', function(e) {
+          if(activeNoteId) {
+              const note = state.notes.find(n => n.id === activeNoteId);
+              if(note) {
+                  note.content = e.target.value;
+                  let preview = note.content.replace(/\n/g, ' ').trim();
+                  note.desc = preview.length > 0 ? preview.substring(0, 80) + (preview.length > 80 ? '...' : '') : 'Nouvelle note vide...';
+                  const status = document.getElementById('editor-note-status');
+                  status.textContent = "Sauvegarde...";
+                  clearTimeout(window.saveTimer);
+                  window.saveTimer = setTimeout(() => { status.textContent = "Enregistré"; }, 800);
+              }
+          }
+      });
+
+      window.goBackFromNote = function() {
+          switchDashboardView(lastViewBeforeNote);
+          activeNoteId = null;
+      };
+
+      window.openProjectDetails = function(id) {
+        activeProjectId = id;
+        const proj = state.projects.find(p => p.id === id);
+        if(!proj) return;
+        document.getElementById('detail-project-title').textContent = proj.title;
+        const statusEl = document.getElementById('detail-project-status');
+        statusEl.setAttribute('data-timestamp', proj.createdAt);
+        statusEl.textContent = getProjectStatus(proj.createdAt);
+        addToHistory(proj, 'project');
+        renderNotes(id, 'project-notes-list-container');
+        switchDashboardView('project-details');
+      };
+
+      document.getElementById('file-import-input')?.addEventListener('change', function(e) {
+          const files = Array.from(e.target.files);
+          if(files.length === 0) return;
+          files.forEach(file => {
+              const reader = new FileReader();
+              reader.onload = function(evt) {
+                  const content = evt.target.result;
+                  const isProjectView = document.getElementById('module-project-details').style.display === 'block';
+                  const assignProjId = isProjectView ? activeProjectId : null;
+                  const newNote = {
+                      id: 'n' + Date.now() + Math.random().toString(36).substr(2, 5),
+                      title: file.name.split('.')[0],
+                      desc: content.substring(0, 80),
+                      content: content,
+                      projectId: assignProjId,
+                      createdAt: Date.now()
+                  };
+                  state.notes.unshift(newNote);
+                  if(isProjectView) renderNotes(activeProjectId, 'project-notes-list-container');
+                  renderNotes(null, 'notes-list-container');
+                  updateCounters();
+              };
+              reader.readAsText(file);
+          });
+          this.value = '';
+      });
+
+      let modalCallback = null;
+      window.openModal = function(title, placeholder, callback) {
+        closeMobileMenu();
+        document.getElementById('input-modal-title').textContent = title;
+        const input = document.getElementById('input-modal-field');
+        input.placeholder = placeholder; input.value = '';
+        modalCallback = callback;
+        const modal = document.getElementById('input-modal');
+        const content = document.getElementById('input-modal-content');
+        modal.classList.remove('hidden');
+        void modal.offsetWidth;
+        modal.classList.remove('opacity-0');
+        content.classList.remove('scale-95');
+        input.focus();
+      };
+      window.closeModal = function() {
+        const modal = document.getElementById('input-modal');
+        const content = document.getElementById('input-modal-content');
+        modal.classList.add('opacity-0');
+        content.classList.add('scale-95');
+        setTimeout(() => modal.classList.add('hidden'), 200);
+        modalCallback = null;
+      };
+      document.getElementById('input-modal-submit')?.addEventListener('click', () => {
+        const val = document.getElementById('input-modal-field').value.trim();
+        if (val && modalCallback) { modalCallback(val); closeModal(); }
+      });
+      document.getElementById('input-modal-field')?.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') { e.preventDefault(); document.getElementById('input-modal-submit').click(); }
+      });
+
+      window.openCreateChoice = function() {
+        closeMobileMenu();
+        const modal = document.getElementById('create-choice-modal');
+        const content = document.getElementById('create-choice-modal-content');
+        modal.classList.remove('hidden');
+        void modal.offsetWidth;
+        modal.classList.remove('opacity-0');
+        content.classList.remove('scale-95');
+      };
+      window.closeCreateChoice = function() {
+        const modal = document.getElementById('create-choice-modal');
+        const content = document.getElementById('create-choice-modal-content');
+        modal.classList.add('opacity-0');
+        content.classList.add('scale-95');
+        setTimeout(() => modal.classList.add('hidden'), 200);
+      };
+      window.chooseCreateType = function(type) {
+        closeCreateChoice();
+        setTimeout(() => {
+          if (type === 'todo') {
+            createNewTask();
+          } else if (type === 'planner') {
+            if (currentActiveView !== 'planner') switchDashboardView('planner');
+            openPlannerModal();
+          }
+        }, 180);
+      };
+
+      window.createNewTask = function() {
+        openModal("Nouvelle Tâche", "Nom de la tâche...", (title) => {
+            state.tasks.unshift({
+                id: 't' + Date.now() + Math.random().toString(36).substr(2, 5),
+                title: title, createdAt: Date.now(), done: false
+            });
+            renderTasks();
+            if(currentActiveView !== 'todo') switchDashboardView('todo');
+        });
+      };
+      window.createNewProject = function() {
+        openModal("Nouveau Projet", "Nom de votre projet...", (name) => {
+            state.projects.unshift({
+                id: 'p' + Date.now() + Math.random().toString(36).substr(2, 5),
+                title: name, createdAt: Date.now()
+            });
+            document.getElementById('search-projects').value = '';
+            renderProjects();
+            switchDashboardView('projects');
+        });
+      };
+      window.createQuickNote = function() {
+        openModal("Nouvelle Note", "Titre de la note...", (title) => {
+            const newNote = {
+                id: 'n' + Date.now() + Math.random().toString(36).substr(2, 5),
+                title: title, desc: '', content: '', projectId: null, createdAt: Date.now()
+            };
+            state.notes.unshift(newNote);
+            document.getElementById('search-notes').value = '';
+            renderNotes(null, 'notes-list-container');
+            openNoteEditor(newNote.id);
+        });
+      };
+      window.createProjectNote = function() {
+        openModal("Note dans ce Projet", "Titre de la note...", (title) => {
+            const newNote = {
+                id: 'n' + Date.now() + Math.random().toString(36).substr(2, 5),
+                title: title, desc: '', content: '', projectId: activeProjectId, createdAt: Date.now()
+            };
+            state.notes.unshift(newNote);
+            renderNotes(activeProjectId, 'project-notes-list-container');
+            renderNotes(null, 'notes-list-container');
+            openNoteEditor(newNote.id);
+        });
+      };
+
+      const quickInput = document.getElementById('quick-task-input');
+      if (quickInput) {
+        quickInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            const val = quickInput.value.trim();
+            if (val !== '') {
+                state.tasks.unshift({
+                    id: 't' + Date.now() + Math.random().toString(36).substr(2, 5),
+                    title: val, createdAt: Date.now(), done: false
+                });
+                quickInput.value = '';
+                renderTasks();
+            }
+          }
+        });
+      }
+
+      let timerInterval, isRunning = false, currentMode = 'focus';
+      const modeDurations = { 'focus': 25*60, 'shortBreak': 5*60, 'longBreak': 15*60, 'flow': 0 };
+      let totalSeconds = modeDurations['focus'];
+
+      const playBtn = document.getElementById('main-play-btn'), playBtnText = document.getElementById('play-btn-text'), playBtnIcon = document.getElementById('play-btn-icon');
+      const resetBtn = document.getElementById('reset-btn'), skipBtn = document.getElementById('skip-btn'), addTimeBtn = document.getElementById('add-time-btn');
+      const prevBtn = document.getElementById('prev-btn');
+      const minEl = document.getElementById('timer-minutes'), secEl = document.getElementById('timer-seconds'), timerColon = document.getElementById('timer-colon');
+
+      const cyclePattern = ['focus', 'shortBreak', 'longBreak'];
+      let cycleIndex = 0;
+
+      function goToNextCycle() {
+        const wasRunning = isRunning;
+        cycleIndex = (cycleIndex + 1) % cyclePattern.length;
+        setMode(cyclePattern[cycleIndex]);
+        if (wasRunning) startTimer();
+      }
+      function goToPrevCycle() {
+        const wasRunning = isRunning;
+        cycleIndex = (cycleIndex - 1 + cyclePattern.length) % cyclePattern.length;
+        setMode(cyclePattern[cycleIndex]);
+        if (wasRunning) startTimer();
+      }
+
+      function updateDisplayTimer() {
+        minEl.textContent = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+        secEl.textContent = (totalSeconds % 60).toString().padStart(2, '0');
+      }
+      function timerTick() {
+        if (currentMode === 'flow') { totalSeconds++; updateDisplayTimer(); }
+        else {
+          if (totalSeconds > 0) { totalSeconds--; updateDisplayTimer(); }
+          else { pauseTimer(); playBtnIcon.textContent = 'replay'; playBtnText.textContent = 'Recommencer'; }
+        }
+      }
+      function startTimer() {
+        if (!isRunning) {
+          isRunning = true; playBtnIcon.textContent = 'pause'; playBtnText.textContent = 'Suspendre';
+          timerColon.classList.add('animate-pulse'); timerInterval = setInterval(timerTick, 1000);
+        }
+      }
+      function pauseTimer() {
+        if (isRunning) {
+          isRunning = false; playBtnIcon.textContent = 'play_arrow'; playBtnText.textContent = 'Démarrer';
+          timerColon.classList.remove('animate-pulse'); clearInterval(timerInterval);
+        }
+      }
+      if (playBtn) playBtn.addEventListener('click', () => {
+        if (isRunning) pauseTimer();
+        else {
+          if (totalSeconds === 0 && currentMode !== 'flow') { totalSeconds = modeDurations[currentMode]; updateDisplayTimer(); }
+          startTimer();
+        }
+      });
+      if (resetBtn) resetBtn.addEventListener('click', () => { pauseTimer(); totalSeconds = modeDurations[currentMode]; updateDisplayTimer(); });
+      if (addTimeBtn) addTimeBtn.addEventListener('click', () => { totalSeconds += 5 * 60; updateDisplayTimer(); });
+      if (skipBtn) skipBtn.addEventListener('click', goToNextCycle);
+      if (prevBtn) prevBtn.addEventListener('click', goToPrevCycle);
+
+      function setMode(mode) {
+        currentMode = mode; totalSeconds = modeDurations[mode]; pauseTimer(); updateDisplayTimer();
+        const buttons = { 'focus': document.getElementById('mode-focus-btn'), 'shortBreak': document.getElementById('mode-shortbreak-btn'), 'longBreak': document.getElementById('mode-longbreak-btn'), 'flow': document.getElementById('mode-flow-btn') };
+        Object.keys(buttons).forEach(key => {
+          const btn = buttons[key]; if (!btn) return; const dot = btn.querySelector('.mode-dot');
+          if (key === mode) {
+            btn.className = 'mode-btn active-mode-pill bg-surface text-on-surface font-label-pill text-label-pill rounded-full px-4 py-1.5 transition-all flex items-center gap-2 shadow-sm font-semibold border border-[#e8e2dc] focus:outline-none';
+            btn.setAttribute('aria-current', 'page');
+            if (!dot) { const newDot = document.createElement('span'); newDot.className = 'mode-dot w-2 h-2 rounded-full bg-primary animate-pulse'; btn.prepend(newDot); }
+          } else {
+            btn.className = 'mode-btn text-on-surface-variant font-label-pill text-label-pill px-4 py-1.5 transition-all hover:text-on-surface hover:bg-surface-container-low rounded-full active:scale-95 duration-200 flex items-center gap-2 border border-transparent focus:outline-none';
+            btn.removeAttribute('aria-current'); if (dot) dot.remove();
+          }
+        });
+      }
+      document.getElementById('mode-focus-btn')?.addEventListener('click', () => { cycleIndex = 0; setMode('focus'); });
+      document.getElementById('mode-shortbreak-btn')?.addEventListener('click', () => { cycleIndex = 1; setMode('shortBreak'); });
+      document.getElementById('mode-longbreak-btn')?.addEventListener('click', () => { cycleIndex = 2; setMode('longBreak'); });
+      document.getElementById('mode-flow-btn')?.addEventListener('click', () => setMode('flow'));
+
+      function toggleTheme() {
+        const btn = document.getElementById('theme-toggle-btn');
+        const icon = document.getElementById('theme-toggle-icon');
+        if (document.documentElement.classList.toggle('dark')) {
+          localStorage.setItem('kairos-theme', 'dark');
+          icon.textContent = 'light_mode';
+        } else {
+          localStorage.setItem('kairos-theme', 'light');
+          icon.textContent = 'dark_mode';
+        }
+        btn.classList.add('spinning', 'rippling');
+        setTimeout(() => btn.classList.remove('spinning'), 600);
+        setTimeout(() => btn.classList.remove('rippling'), 700);
+      }
+      document.getElementById('theme-toggle-btn')?.addEventListener('click', toggleTheme);
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (localStorage.getItem('kairos-theme') === 'dark' || (!localStorage.getItem('kairos-theme') && prefersDark)) {
+          document.documentElement.classList.add('dark'); document.getElementById('theme-toggle-icon').textContent = 'light_mode';
+      }
+
+      window.switchDashboardView = function(viewId) {
+        const wrap = document.getElementById('focus-wrap');
+        if (wrap && wrap.classList.contains('editing')) {
+          const edit = document.getElementById('planner-main-focus-edit');
+          if (edit) state.plannerMainFocus[selectedPlannerDate] = edit.value;
+        }
+
+        document.querySelectorAll('.view-module').forEach(el => {
+          el.style.display = 'none';
+          el.classList.add('hidden');
+        });
+
+        if (viewId !== 'timer') {
+          const target = document.getElementById('module-' + viewId);
+          if (target) {
+            target.style.display = 'block';
+            target.classList.remove('hidden');
+          }
+        }
+
+        document.querySelectorAll('.nav-item').forEach(el => {
+          const isTimer = el.id === 'nav-timer';
+          el.className = `nav-item ${isTimer ? 'lg:hidden ' : ''}flex items-center justify-between px-3.5 py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors cursor-pointer text-[13px]`;
+        });
+
+        const navIdForView = viewId === 'project-details' ? 'projects' : (viewId === 'note-editor' ? 'notes' : viewId);
+        const activeNav = document.getElementById('nav-' + navIdForView);
+        if (activeNav) {
+          const isTimer = activeNav.id === 'nav-timer';
+          activeNav.className = `nav-item ${isTimer ? 'lg:hidden ' : ''}flex items-center justify-between px-3.5 py-2 rounded-full bg-surface-container border border-[#e8e2dc] text-on-surface transition-colors cursor-pointer text-[13px] font-medium shadow-sm`;
+        }
+
+        const viewTitle = document.getElementById('view-title');
+        const viewIcon = document.getElementById('view-icon');
+        const actionBtnText = document.getElementById('view-action-text');
+        const actionBtn = document.getElementById('view-action-btn');
+        const viewHeader = document.getElementById('view-header');
+        const importBtn = document.getElementById('view-import-btn');
+
+        viewHeader.style.display = (viewId === 'project-details' || viewId === 'note-editor') ? 'none' : 'flex';
+
+        if(viewId === 'projects' || viewId === 'notes') {
+          importBtn.classList.remove('hidden'); importBtn.classList.add('flex');
+        } else {
+          importBtn.classList.add('hidden'); importBtn.classList.remove('flex');
+        }
+
+        if (viewId === 'todo') {
+          viewTitle.textContent = "Tâches & Sessions en cours"; viewIcon.textContent = "segment";
+          actionBtn.style.display = "flex"; actionBtnText.textContent = "Ajouter une tâche"; actionBtn.onclick = createNewTask;
+        } else if (viewId === 'projects') {
+          viewTitle.textContent = "Projets"; viewIcon.textContent = "folder";
+          actionBtn.style.display = "flex"; actionBtnText.textContent = "Nouveau Projet"; actionBtn.onclick = createNewProject;
+        } else if (viewId === 'notes') {
+          viewTitle.textContent = "Notes"; viewIcon.textContent = "bookmark_border";
+          actionBtn.style.display = "flex"; actionBtnText.textContent = "Nouvelle Note"; actionBtn.onclick = createQuickNote;
+        } else if (viewId === 'history') {
+          viewTitle.textContent = "Historique"; viewIcon.textContent = "history";
+          actionBtn.style.display = "flex"; actionBtnText.textContent = "Purger l'historique"; actionBtn.onclick = () => { state.history = []; renderHistory(); };
+          renderHistory();
+        } else if (viewId === 'planner') {
+          viewTitle.textContent = "Planificateur"; viewIcon.textContent = "calendar_view_day";
+          actionBtn.style.display = "none";
+          renderPlanner();
+        }
+
+        currentActiveView = viewId;
+
+        if (window.innerWidth < 1024) {
+          if (viewId === 'timer') {
+            currentMobileView = 'timer';
+          } else {
+            currentMobileView = viewId;
+          }
+          applyResponsiveLayout();
+        }
+
+        closeMobileMenu();
+      };
+
+      window.addEventListener('keydown', (e) => {
+        const tag = e.target.tagName;
+        const inputModalOpen = !document.getElementById('input-modal').classList.contains('hidden');
+        const plannerModalOpen = !document.getElementById('planner-modal').classList.contains('hidden');
+        const choiceModalOpen = !document.getElementById('create-choice-modal').classList.contains('hidden');
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || inputModalOpen || plannerModalOpen || choiceModalOpen) return;
+        if (e.code === 'Space') { e.preventDefault(); togglePlayPause(); }
+        else if (e.key === 'r' || e.key === 'R') { if (resetBtn) resetBtn.click(); }
+      });
+
+      function togglePlayPause() { if (playBtn) playBtn.click(); }
+
+      updateDisplayTimer();
+      renderTasks();
+      renderProjects();
+      renderNotes(null, 'notes-list-container');
+      renderHistory();
+      renderPlanner();
+      updateCounters();
+
+      if (window.innerWidth >= 1024) {
+        switchDashboardView('todo');
+      } else {
+        switchDashboardView('timer');
+      }
+    })();
+  </script>
+</body>
+</html>
